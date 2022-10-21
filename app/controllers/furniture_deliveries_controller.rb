@@ -23,7 +23,6 @@ class FurnitureDeliveriesController < ApplicationController
   # POST /furniture_deliveries or /furniture_deliveries.json
   def create
     @furniture_delivery = FurnitureDelivery.new(furniture_delivery_params)
-
     respond_to do |format|
       if @furniture_delivery.save
         format.html { redirect_to furniture_delivery_url(@furniture_delivery), notice: "Furniture delivery was successfully created." }
@@ -70,6 +69,6 @@ class FurnitureDeliveriesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def furniture_delivery_params
-      params.require(:furniture_delivery).permit(:furniture_id, :quantity, :cost, :address)
+      params.require(:furniture_delivery).permit(:furniture_id, :quantity, :cost, :address, :is_delivered)
     end
 end
